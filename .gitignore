@@ -11,6 +11,8 @@ networks/WinCapsule_ddp.py
 networks/WinCapsule_single.py
 utils/utils_ddp.py
 utils/utils_3D.py
+utils/__init__.pyc
+utils/__init__.pyc
 utils/meters.py
 utils/utils_dino.py
 renderer/renderer.py
