@@ -30,10 +30,8 @@ if __name__ == '__main__':
   parser.add_argument('--log_freq', default=1, type=int, help='')
   parser.add_argument('--save_checkpoint_freq', default=1, type=int, help='')
   parser.add_argument('--keep_num_checkpoint', default=-1, type=int, help='-1 to svae all')
-  # parser.add_argument('--checkpoint_dir', default='/path/to/save/results', type=str, help='dir to save results')
-  # parser.add_argument('--load_checkpoint_name', default='/path/to/pretrained/checkpoint020.pth',type=str)
-  parser.add_argument('--checkpoint_dir', default='results', type=str, help='dir to save results')
-  parser.add_argument('--load_checkpoint_name', default='pretrained/checkpoint020.pth',type=str)
+  parser.add_argument('--checkpoint_dir', default='/path/to/save/results', type=str, help='dir to save results')
+  parser.add_argument('--load_checkpoint_name', default='/path/to/pretrained/checkpoint020.pth',type=str)
 
   #* dataloader
   parser.add_argument('--num_workers', default=4, type=int, help='')

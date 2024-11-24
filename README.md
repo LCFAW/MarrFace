@@ -12,9 +12,6 @@ of the probed depth indicates that DNNs initially form 2D representations, then 
 capture surface normals with limited depth, and finally build 3D shapes. This sequential progression from 2D to 2.5D
 to 3D is consistent with David Marr’s seminal theory of vision. 
 
-## TODO
-* Release the training code
-
 ## Getting Started
 
 ### Environment
@@ -34,8 +31,6 @@ conda install pytorch==1.11.0 torchvision==0.12.0 torchaudio==0.11.0 cudatoolkit
 pip install -r requirements.txt
 
 # install the neural_renderer 
-git clone https://github.com/daniilidis-group/neural_renderer.git
-cd neural_renderer
 pip install neural_renderer_pytorch
 ```  
 
@@ -60,21 +55,25 @@ python demo.py
 1. **Visulization**
 
 We prepare five samples in the dataset directory for testing. By runnig demo.py, you can see five directories named by the ID of the samples in the results directory. Every samples has the following items.
-* super_part/mid_part/sub_part: including the normal, depth, light, shape_rot, and each probe's albedo calculated by the high/mid/low-level probes.
-* depth: including each level's whole depth and depth_one_hot, six probe_depth in the high level, you can use the depth data to render the shape in blender.
+* super_part/mid_part/sub_part: including the normal, depth and light of the high/mid/low-level.
+* depth: including each level's whole depth, you can use the depth data to render the shape in blender.
 * normal: including each level's whole normal.
-* albedo: including each level's albedo and reconstrcution result, six probe_albedos in the high level.
-* albedo_hot: including six albedo_masks in the high level.
+* albedo: including each level's albedo and reconstrcution result.
 
-NOTE: For sample F005__T7__0764_1_1 and F008__T2__0970_1_3, we also provide the rendering results in blender which we also use in the paper.
+![results](asset/Figure3.png)
 
-![results](asset/Figure2.png)
+**NOTE**: For sample F005__T7__0764_1_1 and F008__T2__0970_1_3, we also provide the rendering results in blender which we also use in the paper.
+
+![visualization](asset/Figure2.png)
+
+
+
 
 2. **Calculate Variatons**
 
-By running the demo, you can also get the variations of depth and z-axis normal in high & mid & low level. Attention! Casuse the high & mid level 's varaitions are strong related to the view of the face and we only provide five frontal faces for testing, so the result is not the same to the paper! For low-level, its variations keep almost constant through each samples, so the results are similar to the paper. 
+By running the demo, you can also obtain variations in depth and z-axis normals across high, mid, and low levels. 
 
-### Training
+**NOTE:** The variations in the high- and mid- level representations are strongly influenced by the facial view. Since we only provide five frontal face samples for testing, the results may differ from those presented in the paper. For the low-level representations, the variations  remain nearly constant across samples, so the results are closely align with the paper.
 
 
 

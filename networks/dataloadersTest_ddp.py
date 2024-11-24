@@ -5,15 +5,12 @@ import torch.utils.data
 import numpy as np
 from PIL import Image
 from pathlib import Path
-from networks.dinoutils import *
 
 def get_data_loaders(cfgs):
 
     batch_size = cfgs.get('batch_size', 64)
-    num_workers = cfgs.get('num_workers', 4)
     image_size = cfgs.get('image_size', 256)
     crop = cfgs.get('crop', None)
-    device = cfgs.get('device', 'cpu')
 
     run_train = cfgs.get('run_train', False)
     train_data_dir = cfgs.get('train_data_dir', './data')
@@ -67,18 +64,11 @@ class ImageDataset(torch.utils.data.Dataset):
                 self.filelist.append((line, di))
             
         self.size = len(self.filelist)
-        # self.mask_size = len(self.mask_paths)
         self.image_size = image_size
         self.crop = crop
         self.is_validation = is_validation
         self.p =1
 
-        # for k in range(self.size):
-        #     file_name = self.paths[k]
-        #     im_name = file_name[file_name.rfind('/')+1:file_name.rfind('.')]
-        #     mask_name =  mask_dir+'/'+im_name+'.png'
-        #     if mask_name not in self.mask_paths:
-        #         print(mask_name)
     def ori_transform(self, img, hflip=False):
         if self.crop is not None:
             if isinstance(self.crop, int):
@@ -101,36 +91,19 @@ class ImageDataset(torch.utils.data.Dataset):
                 img = tfs.functional.crop(img, *self.crop)
         img = tfs.functional.resize(img, (self.image_size, self.image_size))
         
-
-        # if self.p % 2 ==0:
-        #     img = tfs.functional.hflip(img)
         return tfs.functional.to_tensor(img)
-    
-    # def transform_dino(self,img):
-    #     return self.TransformDino(img)
 
     def __getitem__(self, index):
 
         filename, di = self.filelist[index]
         fpath = os.path.join(self.root[di], filename)
-        # mpath = self.mask_paths[index % self.size]
       
         img_ori = Image.open(fpath).convert('RGB')
-        # mask = Image.open(mpath).convert('RGB')
         img = self.transform(img_ori)
         self.p = self.p+1
-        # if self.p % 3 < 2:
-        #     img = img.flip(2)
-        # if self.p % 2 == 0:
-        #     img = img.flip(2)
-        #     im_name = 'p'+fpath[fpath.rfind('/')+1:fpath.rfind('.')]
-        # else:
         im_name = fpath[fpath.rfind('/')+1:fpath.rfind('.')]
 
-
-        # hflip = not self.is_validation and np.random.rand()>0.5
-        # return self.transform(img), self.transform(mask), im_name, self.ori_transform(img)
-        return img, im_name #self.ori_transform(img)#, im_name#, self.transform(mask)
+        return img, im_name
 
     def __len__(self):
         return self.size
@@ -147,7 +120,6 @@ def get_image_loader(data_dir, file_dir, is_validation=False,
         dataset,
         batch_size=batch_size,
         num_workers=num_workers,
-        # pin_memory=True,
     )
     return loader
 
