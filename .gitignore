@@ -18,3 +18,4 @@ utils/utils_dino.py
 renderer/renderer.py
 networks/dinoutils.py
 __pycache__
+.gitignore
