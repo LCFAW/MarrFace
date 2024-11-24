@@ -54,11 +54,11 @@ python demo.py
 
 1. **Visulization**
 
-We prepare five samples in the dataset directory for testing. By runnig demo.py, you can see five directories named by the ID of the samples in the results directory. Every samples has the following items.
-* super_part/mid_part/sub_part: including the normal, depth and light of the high/mid/low-level.
-* depth: including each level's whole depth, you can use the depth data to render the shape in blender.
-* normal: including each level's whole normal.
-* albedo: including each level's albedo and reconstrcution result.
+We have prepared five samples in the dataset directory for testing. By running demo.py, you will find five directories in the results folder, each named after the corresponding sample ID. Each sample contains the following items:
+* super_part/mid_part/sub_part: Includes the normal, depth and light of the high/mid/low-level representations.
+* depth: Contains the complete depth data for each level. This data can be used to render shapes in Blender.
+* normal: Contains the complete normal maps for each level.
+* albedo: Includes the albedo and reconstruction results for each level.
 
 ![results](asset/Figure3.png)
 
