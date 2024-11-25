@@ -4,13 +4,17 @@ By [Xiangyu Zhu](https://xiangyuzhu-open.github.io/homepage/), [Chang Yu](), [Ji
 
 This repository is the official implementation of [MarrFace](https://arxiv.org/abs/).
 
-![Schematic of Graphics Probe](asset/Figure1.png)
+<img src="asset/Figure1.png" width = "738" height = "500" alt="The building of 2D--2.5D--3D representations in DNN" align=center />
+
+## Pipeline
 
 In this paper, we introduce graphics probe, a new approach that effectively converts a network’s intermediate feature
 into visualizable computer graphics (CG) elements, including depth, albedo, camera view, and lighting. Our analysis
 of the probed depth indicates that DNNs initially form 2D representations, then evolve to 2.5D representations that
 capture surface normals with limited depth, and finally build 3D shapes. This sequential progression from 2D to 2.5D
 to 3D is consistent with David Marr’s seminal theory of vision. 
+
+![Schematic of Graphics Probe](asset/Figure2.png)
 
 ## Getting Started
 
@@ -60,11 +64,9 @@ We have prepared five samples in the dataset directory for testing. By running d
 * normal: Contains the complete normal maps for each level.
 * albedo: Includes the albedo and reconstruction results for each level.
 
-![results](asset/Figure3.png)
-
 **NOTE**: For sample F005__T7__0764_1_1 and F008__T2__0970_1_3, we also provide the rendering results in blender which we also use in the paper.
 
-![visualization](asset/Figure2.png)
+![visualization](asset/Figure3.png)
 
 2. **Calculate Variatons**
 
@@ -80,11 +82,11 @@ By running the demo, you can also obtain variations in depth and z-axis normals 
   journal={arXiv preprint arXiv:...},
   year={2024}
 }
-```
+``` -->
 
 ## Acknowledgements
 There are some models or datasets in this implementation that are based on external sources. We thank the authors for their excellent works. Here are some great resources we benefit: [Swin-Transformer](https://github.com/microsoft/Swin-Transformer), 
-[Neural 3D Mesh Renderer](https://github.com/daniilidis-group/neural_renderer), [CeleBA](https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html), [BP4D](https://www.cs.binghamton.edu/~lijun/Research/3DFE/3DFE_Analysis.html). -->
+[Neural 3D Mesh Renderer](https://github.com/daniilidis-group/neural_renderer), [CeleBA](https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html), [BP4D](https://www.cs.binghamton.edu/~lijun/Research/3DFE/3DFE_Analysis.html).
 
 
 
