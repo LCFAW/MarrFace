@@ -4,7 +4,7 @@ By [Xiangyu Zhu](https://xiangyuzhu-open.github.io/homepage/), [Chang Yu](), [Ji
 
 This repository is the official implementation of [MarrFace](https://arxiv.org/abs/).
 
-<img src="asset/Figure1.png" width = "738" height = "500" alt="The building of 2D--2.5D--3D representations in DNN" align=center />
+<img src="asset/Figure1.png" width = "492" height = "333" alt="The building of 2D--2.5D--3D representations in DNN" align=center />
 
 ## Pipeline
 
