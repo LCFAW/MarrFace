@@ -66,15 +66,25 @@ We have prepared five samples in the dataset directory for testing. By running d
 
 ![visualization](asset/Figure2.png)
 
-
-
-
 2. **Calculate Variatons**
 
 By running the demo, you can also obtain variations in depth and z-axis normals across high, mid, and low levels. 
 
 **NOTE:** The variations in the high- and mid- level representations are strongly influenced by the facial view. Since we only provide five frontal face samples for testing, the results may differ from those presented in the paper. For the low-level representations, the variations  remain nearly constant across samples, so the results are closely align with the paper.
 
+## Citation
+```
+@article{Zhu2024marrface,
+  title={Revisiting Marr in Face: The Building of 2D–2.5D–3D Representations in Deep Neural Networks},
+  author={Xiangyu, Zhu and Chang, Yu and Jiankuo, Zhao and Zhaoxiang, Zhang and Stan, Z.Li and Zhen, Lei},
+  journal={arXiv preprint arXiv:...},
+  year={2024}
+}
+```
+
+## Acknowledgements
+There are some models or datasets in this implementation that are based on external sources. We thank the authors for their excellent works. Here are some great resources we benefit: [Swin-Transformer](https://github.com/microsoft/Swin-Transformer), 
+[Neural 3D Mesh Renderer](https://github.com/daniilidis-group/neural_renderer), [CeleBA](https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html), [BP4D](https://www.cs.binghamton.edu/~lijun/Research/3DFE/3DFE_Analysis.html).
 
 
 
